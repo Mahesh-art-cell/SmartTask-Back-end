@@ -76,8 +76,8 @@ const app = express();
 
 // Allowed frontend origins
 const allowedOrigins = [
-  "http://localhost:5173", // local frontend
-  "https://smart-task-front-end-oxxp.vercel.app" // Vercel deployed frontend
+  "http://localhost:5173", 
+  "https://smart-task-front-end.vercel.app/"
 ];
 
 // Middleware
