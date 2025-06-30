@@ -8,9 +8,7 @@ const getUserTasks = async (userId) => {
   return await Task.find({ userId }).sort({ dueDate: 1 });
 };
 
-// const updateTaskService = async (taskId, updates) => {
-//   return await Task.findByIdAndUpdate(taskId, updates, { new: true });
-// };
+
 const updateTaskService = async (taskId, updates, userId) => {
   return await Task.findOneAndUpdate(
     { _id: taskId, userId }, // ✅ match task + owner
@@ -35,3 +33,4 @@ module.exports = {
   deleteTaskService,
   markTaskComplete,
 };
+

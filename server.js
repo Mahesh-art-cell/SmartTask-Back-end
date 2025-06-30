@@ -10,7 +10,6 @@ const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/users");
 const taskRoutes = require("./routes/tasks");
 const adminRoutes = require("./routes/admin");
-const exportRoutes = require("./routes/export");
 
 dotenv.config();
 connectDB();
@@ -28,7 +27,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-// app.options("*", cors(corsOptions)); // ⬅ handles preflight
+
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -37,7 +36,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/tasks", taskRoutes);
 app.use("/api/admin", adminRoutes);
-app.use("/api/export", exportRoutes);
 
 app.get("/", (req, res) => {
   res.send("✅ Smart Task Management API is running...");

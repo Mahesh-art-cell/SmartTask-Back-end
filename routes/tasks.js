@@ -5,6 +5,7 @@ const {
   updateTask,
   deleteTask,
   markComplete,
+  getTasksByUserId
 } = require("../controllers/taskController");
 
 const { verifyToken } = require("../middleware/auth");

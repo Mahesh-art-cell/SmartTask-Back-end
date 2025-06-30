@@ -12,16 +12,16 @@ const registerService = async ({ fullName, email, password, role }) => {
     fullName,
     email,
     password: hashedPassword,
-    role: role || "user", // ✅ Accepts "admin" if passed, defaults to "user"
+    role: role || "user", 
   });
 
   const token = jwt.sign(
-    { id: newUser._id, role: newUser.role }, // ✅ Include role in token
+    { id: newUser._id, role: newUser.role }, 
     process.env.JWT_SECRET,
     { expiresIn: "7d" }
   );
 
-  return { user: newUser, token };
+  return { user: newUser, token };  
 };
 
 
@@ -37,21 +37,21 @@ const loginService = async ({ email, password }) => {
   }
 
   if (!user.isActive) {
-    console.log("❌ User is not active");
+    console.log("User is not active");
     throw new Error("Invalid credentials");
   }
 
-  console.log("✅ User found:", user.email);
+  console.log("User found:", user.email);
 
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) {
-    console.log("❌ Password mismatch");
+    console.log("Password mismatch");
     console.log("Entered:", password);
     console.log("Stored Hash:", user.password);
     throw new Error("Invalid credentials");
   }
 
-  console.log("✅ Password matched");
+  console.log("Password matched");
 
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
   return { user, token };
