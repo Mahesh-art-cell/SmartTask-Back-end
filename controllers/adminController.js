@@ -28,7 +28,7 @@ const deactivateUser = async (req, res, next) => {
 const activateUser = async (req, res, next) => {
   
   try {
-    const result = await activateUserService(req.params.id); // ✅ Use service
+    const result = await activateUserService(req.params.id); 
     console.log("🔁 HIT /users/:id/activate route", req.params.id);
     if (!result) {
       return res.status(404).json({ error: "User not found" });
@@ -36,7 +36,7 @@ const activateUser = async (req, res, next) => {
     res.json(result);
   } catch (err) {
     console.error("Activate User Error:", err);
-    next(err); // ✅ Consistent error handling
+    next(err); 
   }
 };
 
@@ -50,21 +50,12 @@ const getDashboardStats = async (req, res, next) => {
 };
 
 
-// const getUserTasks = async (req, res, next) => {
-//   try {
-//     const tasks = await getUserTasksService(req.params.id);
-//     res.json(tasks);
-//   } catch (err) {
-//     console.error("Error fetching user tasks:", err);
-//     next(err);
-//   }
-// };
 
 const getUserTasks = async (req, res, next) => {
   try {
-    console.log("Fetching tasks for user:", req.params.id); // 👈 log user ID
+    console.log("Fetching tasks for user:", req.params.id); 
     const tasks = await getUserTasksService(req.params.id);
-    console.log("Fetched tasks:", tasks); // 👈 log result
+    console.log("Fetched tasks:", tasks); 
     res.json(tasks);
   } catch (err) {
     console.error("Error fetching user tasks:", err);

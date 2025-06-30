@@ -38,12 +38,12 @@ app.use("/api/tasks", taskRoutes);
 app.use("/api/admin", adminRoutes);
 
 app.get("/", (req, res) => {
-  res.send("✅ Smart Task Management API is running...");
+  res.send("Smart Task Management API is running...");
 });
 
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });

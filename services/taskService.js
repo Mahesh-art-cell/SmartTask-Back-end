@@ -11,7 +11,7 @@ const getUserTasks = async (userId) => {
 
 const updateTaskService = async (taskId, updates, userId) => {
   return await Task.findOneAndUpdate(
-    { _id: taskId, userId }, // ✅ match task + owner
+    { _id: taskId, userId }, 
     updates,
     { new: true }
   );
